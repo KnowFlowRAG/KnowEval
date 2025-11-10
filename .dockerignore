@@ -1,0 +1,31 @@
+# Git
+.git/
+.gitignore
+
+# Backups
+backups/
+backup-*.tar.gz
+*.tar.gz
+
+# Environment (will be provided at runtime)
+.env
+
+# Runtime directories (will be mounted as volumes)
+data/
+logs/
+tmp/
+
+# Documentation (not needed in image)
+README.md
+QUICKSTART.md
+LICENSE
+
+# Scripts (not needed in image)
+start.sh
+stop.sh
+update.sh
+backup.sh
+
+# OS
+.DS_Store
+Thumbs.db

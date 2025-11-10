@@ -1,0 +1,16 @@
+# Environment variables (Contains API keys)
+.env
+
+# Data directories
+data/
+logs/
+tmp/
+
+# Backups
+backups/
+backup-*.tar.gz
+*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db

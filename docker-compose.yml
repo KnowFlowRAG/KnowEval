@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  knowflow-eval:
+    image: zxwei/knowflow-eval:latest
+    container_name: knowflow-eval
+    restart: unless-stopped
+
+    ports:
+      - "5003:80"
+
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./tmp:/app/tmp
+
+    env_file:
+      - .env
+
+    environment:
+      - TZ=Asia/Shanghai
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    networks:
+      - knowflow-network
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  knowflow-network:
+    driver: "bridge"
